@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- Use title if it's in the page YAML frontmatter -->
+        <title>Titanium™ インストールガイド</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic" rel="stylesheet">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <div id="sidebar">
+    <p class="title"><a href="#">Titanium™ インストールガイド</a></p>
+    <a class="toc" href="#introduction">はじめに</a>
+    <a class="toc" href="#environment">環境構築</a>
+    <ul class="menu">
+        <li><a href="#environment-01">OS</a></li>
+        <li><a href="#environment-02">開発キット等</a></li>
+        <li><a href="#environment-03">Titanium™</a>
+            <ul style="margin: 0;">
+                <li><a href="#environment-03-01">Titanium Studio のインストール</a>
+                    <a href="#environment-03-01-win">Win</a> / <a href="#environment-03-01-mac">Mac</a></li>
+                <li><a href="#environment-03-02">Titanium Studio を起動</a>
+                    <a href="#environment-03-02-win">Win</a> / <a href="#environment-03-02-mac">Mac</a></li>
+            </ul></li>
+        <li><a href="#environment-04">Genymotion∞</a></li>
+    </ul>
+    <a class="toc" href="#tutorial">チュートリアル</a>
+    <ul class="menu">
+    </ul>
+    <a class="toc" href="#changelog">更新履歴</a>
+</div>
+
+        <div id="content">
+            <h1>Titanium™ インストールガイド</h1>
+            <h2 id="introduction">はじめに</h2>
+<p>米国 Appcelerator 社が提供している、JavaScript で iOS / Android のネイティブアプリを開発することができる Titanium™ の導入方法の日本語解説サイトです。</p>
+<p>Titanium Studio、Titanium SDK、Titanium CLI、Alloy、Node.ACS の環境構築からアプリのプロジェクトを生成し、シミュレータ、もしくはエミュレータでアプリを起動することろまでの流れを解説します。
+	nvm で node.js をインストールされていたりする場合等、特殊な環境下でのセットアップにつきましては、解説を省かせていただきますのでご了承ください。
+	また、ターゲットとなるアプリのプラットフォームは iOS / Android のみとさせていただきます。</p>
+<h2 id="introduction">本サイトでの対応バージョン</h2>
+<dl>
+	<dt>Titanium Studio
+		<small>3.2.0</small></dt>
+	<dd>Titanium で iOS / Android アプリを開発するための、Eclipse ベースの統合開発環境</dd>
+	<dt>Titanium SDK
+		<small>3.2.0.GA</small></dt>
+	<dd>Titanium で iOS / Android アプリをビルドするための開発キット</dd>
+	<dt>Titanium CLI
+		<small>3.2.0</small></dt>
+	<dd>コマンドライン（CLI）でプロジェクトの生成からアプリのビルドまで行えるようにするツール</dd>
+	<dt>Alloy
+		<small>1.3.0</small></dt>
+	<dd>Titanium 開発元の Appcelerator が提供している公式 MVC フレームワーク</dd>
+	<dt>Node.ACS
+		<small>1.0.11</small></dt>
+	<dd>Appcelerator 社が提供する PaaS。
+		同じく、Appcelerator 社が提供している mBaaS である、Appcelerator Cloud Services（ACS）と親和性が非常に高く、ACS で提供されていない機能を独自で拡張できたりもします</dd>
+</dl>
+<hr>
+            <h2 id="environment">環境構築</h2>
+<h3 id="environment-01">OS</h3>
+<dl>
+	<dt>Windows</dt>
+	<dd>Windows 7、もしくは Window 8</dd>
+	<dt>Mac OS X</dt>
+	<dd>Mountain Lion 以降</dd>
+</dl>
+<p>※ Linux については解説を省きます</p>
+<h3 id="environment-02">開発キット等</h3>
+<dl>
+	<dt>Xcode</dt>
+	<dd>iOS アプリをビルドするために必要となります。
+		つまり、Xcode が提供されていない Windows では iOS アプリをビルドすることができません</dd>
+	<dd><a href="https://developer.apple.com/downloads/">Apple 開発者向けサイト</a>からダウンロードできます</dd>
+	<dt>JDK</dt>
+	<dd>Android アプリをビルドするために必要となります。
+		Windows の場合は Titanium Studio をインストールする際に JDK がインストールされていない場合、Titanium Studio をインストールすると同時に自動でダウンロードしてインストールされます。
+		手動でインストールする場合は必ず 32bit 版をインストールしてください。</dd>
+	<dd><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle 開発者向けサイト</a>、もしくは、<a href="https://developer.apple.com/downloads/">Apple 開発者向けサイト</a>からダウンロードできます</dd>
+	<dt>Android SDK</dt>
+	<dd>Android アプリをビルドするために必要となります。
+		こちらは手動でインストールする必要があります</dd>
+	<dd><a href="http://developer.android.com/sdk/index.html">Google の Android 開発者向けサイト</a>からダウンロードできます。
+		Titanium のみで開発するのであれば（Eclipse を使って Java で開発しない）、SDK Tools Only 版をインストールすることをおすすめします</dd>
+	<dt>node.js</dt>
+	<dd>iOS / Android 問わず、Titanium でアプリをビルドする際に必要となります。
+		Windows の場合は Titanium Studio をインストールする際に node.js がインストールされていない場合、Titanium Studio をインストールすると同時に自動でダウンロードしてインストールされます</dd>
+	<dd><a href="http://nodejs.org/download/">node.js のダウンロードページ</a>からダウンロードできます</dd>
+	<dt>git</dt>
+	<dd>アプリのプロジェクトを管理するために必要となります。
+		その他にも、Appcelerator が提供している KitchenSink 等のお手本プロジェクトを Titanium Studio で GitHub からダウンロードしたりもします。
+		Windows の場合は Titanium Studio をインストールする際に git がインストールされていない場合、Titanium Studio をインストールすると同時に自動でダウンロードしてインストールされます</dd>
+	<dd><a href="http://git-scm.com/downloads">git のダウンロードページ</a>からダウンロードできます</dd>
+</dl>
+<h3 id="environment-03">Titanium™</h3>
+<h4 id="environment-03-01">Titanium Studio のインストール</h4>
+<p>Appcelerator のアカウントが必要となります。
+	<a href="https://my.appcelerator.com/auth/signup">レジストページ</a>より必要情報を入力してアカウント登録を行ってください。
+	登録が完了したらログインし、<a href="https://my.appcelerator.com/resources">My Resources</a> ページより Titanium Studio をダウンロードします。
+	<img src="/img/environment/myresources.png"></p>
+<p id="environment-03-01-win">それではダウンロードが完了したら、セットアップを開始しましょう。まずは Windows の場合はからになります。</p>
+<ol>
+	<li>ダウンロードした Titanium_Studio.exe からセットアップウィザードを起動します
+		<img src="/img/environment/studio_windows-01.png"></li>
+	<li>利用規約に同意します
+		<img src="/img/environment/studio_windows-02.png"></li>
+	<li>インストールパスを確認します。
+		デフォルトとは異なる場所へインストールしたい場合は適宜変更してください
+		<img src="/img/environment/studio_windows-03.png"></li>
+	<li>スタートメニューに登録したくない場合はチェックしてください
+		<img src="/img/environment/studio_windows-04.png"></li>
+	<li>ファイルを関連付けたくない場合はチェックを外してください
+		<img src="/img/environment/studio_windows-05.png"></li>
+	<li>JDK がインストールされていない場合は自動でインストールするという確認になります
+		<img src="/img/environment/studio_windows-06.png"></li>
+	<li>git がインストールされていない場合は自動でインストールするという確認になります
+		<img src="/img/environment/studio_windows-07.png"></li>
+	<li>node.js がインストールされていない場合は自動でインストールするという確認になります
+		<img src="/img/environment/studio_windows-08.png"></li>
+	<li>インストールが始まります
+		<img src="/img/environment/studio_windows-09.png"></li>
+	<li>JDK がインストールされています
+		<img src="/img/environment/studio_windows-10.png"></li>
+	<li>git がインストールされています
+		<img src="/img/environment/studio_windows-11.png"></li>
+	<li>node.js がインストールされています
+		<img src="/img/environment/studio_windows-12.png"></li>
+	<li>Titanium Studio がインストールされています
+		<img src="/img/environment/studio_windows-13.png"></li>
+	<li>Titanium Studio のインストールが完了しました
+		<img src="/img/environment/studio_windows-14.png"></li>
+	<li>Close ボタンをクリックしてセットアップウィザードを完了します
+		<img src="/img/environment/studio_windows-15.png"></li>
+</ol>
+<p id="environment-03-01-mac">続いて、Mac OS X のセットアップになります。</p>
+<ol>
+	<li>ダウンロードした Titanium_Studio.dmg を起動すると、Finder が表示されます
+		<img src="/img/environment/studio_mac-01.png"></li>
+	<li>表示されている Titanium Studio フォルダを Applications フォルダへドラッグアンドドロップして完了です</li>
+</ol>
+<h4 id="environment-03-02">Titanium Studio を起動</h4>
+<p id="environment-03-02-win">まずは Windows から、Titanium Studio を起動するとワークスペースのパスを設定するように促されます。
+	<img src="/img/environment/studio_windows-workspace.png">
+	その後、Accelerator のアカウントがあるか聞かれます。
+	Titanium Studio をダウンロードする際に作ってあるので、I do have an account with Appcelerator にチェックを入れて Next ボタンをクリックします。
+	<img src="/img/environment/studio_windows-account.png">
+	ログインダイアログが表示されますので、Appcelerator のアカウントを入力してログインしましょう。
+	<img src="/img/environment/studio_windows-login.png"></p>
+<p>ログインすると自動でアップデート処理が走ります。
+	Titanium SDK や Titanium CLI、Alloy、Node.ACS のインストール、もしくはアップデートをすることができます。
+	<img src="/img/environment/studio_windows-update.png"></p>
+<p>Android SDK がインストールされていない、もしくはパスが設定されていないと、設定ダイアログが表示されます。
+	Android SDK のダウンロード、インストールが完了したらパスの設定も忘れずに行いましょう。
+	<img src="/img/environment/studio_windows-androidsdk.png">
+	万が一、この設定ダイアログを閉じてしまっても、ダッシュボートの Get Started タブの下部にある Configure Native SDKs → Android SDK → Install or Update Android SDK をクリックすれば表示されます。
+	<img src="/img/environment/studio_windows-configure.png"></p>
+<p id="environment-03-02-mac">続いて、Mac OS X の Titanium Studio を起動します。
+	<img src="/img/environment/studio_mac-workspace.png">
+	その後、Accelerator のアカウントがあるか聞かれます。
+	Titanium Studio をダウンロードする際に作ってあるので、I do have an account with Appcelerator にチェックを入れて Next ボタンをクリックします。
+	<img src="/img/environment/studio_mac-account.png">
+	ログインダイアログが表示されますので、Appcelerator のアカウントを入力してログインしましょう。
+	<img src="/img/environment/studio_mac-login.png"></p>
+<p>ログインすると自動でアップデート処理が走ります。
+	Titanium SDK や Titanium CLI、Alloy、Node.ACS のインストール、もしくはアップデートをすることができます。
+	<img src="/img/environment/studio_mac-update.png"></p>
+<p>Android SDK がインストールされていない、もしくはパスが設定されていないと、設定ダイアログが表示されます。
+	Android SDK のダウンロード、インストールが完了したらパスの設定も忘れずに行いましょう。
+	<img src="/img/environment/studio_mac-androidsdk.png">
+	万が一、この設定ダイアログを閉じてしまっても、ダッシュボートの Get Started タブの下部にある Configure Native SDKs → Android SDK → Install or Update Android SDK をクリックすれば表示されます。
+	<img src="/img/environment/studio_mac-configure.png"></p>
+<h3 id="environment-04">Genymotion∞</h3>
+<p>Android アプリを開発する際にAndroid SDKに標準でついてくるエミュレータで動作確認を行ったりするのですが、このエミュレータが非常に重いです。
+	そこで、この Genymotion の登場です。
+	全然ストレスを感じない軽快な動作で、開発が非常に楽になります。
+	特に Windows では Android アプリの開発のみとなりますので、是非、導入することをおすすめします。</p>
+<p>VirtualBox が必要となりますので、<a href="https://www.virtualbox.org/wiki/Downloads">ダウンロードページ</a>からダウンロードし、セットアップを済ませてください。</p>
+<p>Genymotion は<a href="http://www.genymotion.com/">こちらからダウンロード</a>することができます。
+	Free で構いません。
+	ただし Genymotion のアカウントが必要となりますのでアカウント登録を済ませて、ログインしてからダウンロード、セットアップをしてください。
+	その後、Genymotion を起動すると Android の色々な VM がダウンロードできるようになります。
+	開発対象の実機に近いものを選択すると良いと思います。</p>
+<p>Titanium Studio で Android アプリをビルドする際、アプリの転送先を Genymotion にする事ができます。
+	Windows の場合は、Titanium Studio の Window → Preference → Studio → Platforms → Android → Default Emulator に Genymotion でダウンロードした Android の VM 名が入っているのでそれを選択します。
+	<img src="/img/environment/studio_windows-genymotion.png">
+	Mac OS X の場合は、Titanium Studio の環境設定 → Studio → Platforms → Android → Default Emulator に Genymotion でダウンロードした Android の VM 名が入っているのでそれを選択します。
+	<img src="/img/environment/studio_mac-genymotion.png"></p>
+<hr>
+            <h2 id="tutorial">チュートリアル</h2>
+
+<hr>
+            <h2 id="changelog">更新履歴</h2>
+<dl>
+	<dt>2014 年 01 月 07 日</dt>
+	<dd>環境構築まで作成</dd>
+</dl>
+<hr>
+            <p class="footer">Titanium™ インストールガイドは <a href="http://titanium-mobile.jp/">Titanium Mobile ユーザー会</a>の提供でお送りしております</p>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
