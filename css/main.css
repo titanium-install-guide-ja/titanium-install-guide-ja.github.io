@@ -175,7 +175,8 @@ hr {
     -moz-box-shadow: 0 0 10px #ccc;
     background: #c2111d;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     text-shadow: 1px -1px 0 rgba(0,0,0,.5);
 }
 
@@ -216,7 +217,29 @@ hr {
     text-align: center;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 640px),
+    only screen and (-o-min-device-pixel-ratio: 3/2) and (max-width: 640px),
+    only screen and (min-device-pixel-ratio: 1.5) and (max-width: 640px) {
+    img {
+        max-width: 100%;
+    }
 
+    #sidebar {
+        position: relative;
+        top: 0px;
+        left: 0;
+        width: 90%;
+        height: 120px;
+        margin: 10px auto 0 auto;
+        border: 0;
+        -webkit-overflow-scrolling: initial;
+    }
+
+    #content {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
 
 
 /* ==========================================================================
