@@ -37,11 +37,17 @@
                 <li><a href="#environment-03-02">Titanium Studio を起動</a>
                     <a href="#environment-03-02-win">Win</a> / <a href="#environment-03-02-mac">Mac</a></li>
             </ul></li>
-        <li><a href="#environment-04">Genymotion∞</a></li>
+        <li><a href="#environment-04">Android SDK</a>
+            <ul style="margin: 0;">
+                <li><a href="#environment-04-01">Android SDK のインストール</a>
+                    <a href="#environment-04-01-win">Win</a> / <a href="#environment-04-01-mac">Mac</a></li>
+            </ul></li>
+        <li><a href="#environment-05">Genymotion∞</a></li>
     </ul>
     <a class="toc" href="#tutorial">チュートリアル</a>
     <ul class="menu">
     </ul>
+    <a class="toc" href="#commandline">Titanium CLI</a>
     <a class="toc" href="#changelog">更新履歴</a>
 </div>
 
@@ -52,7 +58,7 @@
 <p>Titanium Studio、Titanium SDK、Titanium CLI、Alloy、Node.ACS の環境構築からアプリのプロジェクトを生成し、シミュレータ、もしくはエミュレータでアプリを起動することろまでの流れを解説します。
 	nvm で node.js をインストールされていたりする場合等、特殊な環境下でのセットアップにつきましては、解説を省かせていただきますのでご了承ください。
 	また、ターゲットとなるアプリのプラットフォームは iOS / Android のみとさせていただきます。</p>
-<h2 id="introduction">本サイトでの対応バージョン</h2>
+<h2 id="introduction">インストールガイドでの対応バージョン</h2>
 <dl>
 	<dt>Titanium Studio
 		<small>3.2.0</small></dt>
@@ -62,7 +68,8 @@
 	<dd>Titanium で iOS / Android アプリをビルドするための開発キット</dd>
 	<dt>Titanium CLI
 		<small>3.2.0</small></dt>
-	<dd>コマンドライン（CLI）でプロジェクトの生成からアプリのビルドまで行えるようにするツール</dd>
+	<dd>コマンドライン（CLI）でプロジェクトの生成からアプリのビルドまで行えるようにするツール。
+		Titanium Studio が不要になります</dd>
 	<dt>Alloy
 		<small>1.3.0</small></dt>
 	<dd>Titanium 開発元の Appcelerator が提供している公式 MVC フレームワーク</dd>
@@ -113,7 +120,7 @@
 	<a href="https://my.appcelerator.com/auth/signup">レジストページ</a>より必要情報を入力してアカウント登録を行ってください。
 	登録が完了したらログインし、<a href="https://my.appcelerator.com/resources">My Resources</a> ページより Titanium Studio をダウンロードします。
 	<img src="/img/environment/myresources.png"></p>
-<p id="environment-03-01-win">それではダウンロードが完了したら、セットアップを開始しましょう。まずは Windows の場合はからになります。</p>
+<p id="environment-03-01-win">それではダウンロードが完了したら、セットアップを開始しましょう。まずは Windows の場合になります。</p>
 <ol>
 	<li>ダウンロードした Titanium_Studio.exe からセットアップウィザードを起動します
 		<img src="/img/environment/studio_windows-01.png"></li>
@@ -184,8 +191,70 @@
 	<img src="/img/environment/studio_mac-androidsdk.png">
 	万が一、この設定ダイアログを閉じてしまっても、ダッシュボートの Get Started タブの下部にある Configure Native SDKs → Android SDK → Install or Update Android SDK をクリックすれば表示されます。
 	<img src="/img/environment/studio_mac-configure.png"></p>
-<h3 id="environment-04">Genymotion∞</h3>
-<p>Android アプリを開発する際にAndroid SDKに標準でついてくるエミュレータで動作確認を行ったりするのですが、このエミュレータが非常に重いです。
+<h3 id="environment-04">Android SDK</h3>
+<p><a href="http://developer.android.com/sdk/index.html">Google の Android 開発者向けサイト</a>からダウンロードしてください（Windows の場合は Recommended になっているインストーラ版で説明します）。
+	<img src="/img/environment/androidsdk.png"></p>
+<p id="environment-04-01-win">ダウンロードが完了したら、セットアップを開始しましょう。まずは Windows の場合になります。</p>
+<ol>
+	<li>ダウンロードしたインストーラ（android-sdk_r22.3-windows.exe）からセットアップウィザードを起動します
+		<img src="/img/environment/androidsdk_windows-01.png"></li>
+	<li>JDK がインストールされていることを確認します
+		<img src="/img/environment/androidsdk_windows-02.png"></li>
+	<li>Android SDK をインストールするユーザを指定します。
+		今回は Install just for me で Windows にログインしているユーザのみとします
+		<img src="/img/environment/androidsdk_windows-03.png"></li>
+	<li>インストールパスを確認します。
+		デフォルトとは異なる場所へインストールしたい場合は適宜変更してください
+		<img src="/img/environment/androidsdk_windows-04.png"></li>
+	<li>スタートメニューに登録したくない場合はチェックしてください
+		<img src="/img/environment/androidsdk_windows-05.png"></li>
+	<li>インストールが始まります
+		<img src="/img/environment/androidsdk_windows-06.png"></li>
+	<li>インストールが完了しました
+		<img src="/img/environment/androidsdk_windows-07.png"></li>
+	<li>そのまま Android SDK Manager を起動するので、Start SDK Manager へチェックを入れたまま Finish をクリックします
+		<img src="/img/environment/androidsdk_windows-08.png"></li>
+	<li>Tools と 今回は Android 4.4.2（API 19）にチェックを入れて Install XX Packages をクリックします。
+		他の Android バージョンの SDK や エミュレータ等もインストールしたい場合は、適宜チェックしてください
+		<img src="/img/environment/androidsdk_windows-09.png"></li>
+	<li>Accept License をチェックし、Install をクリックします
+		<img src="/img/environment/androidsdk_windows-10.png"></li>
+	<li>ダウンロードが始まります
+		<img src="/img/environment/androidsdk_windows-11.png"></li>
+	<li>ログに Done loading packages. が表示されたら Close をクリックます
+		<img src="/img/environment/androidsdk_windows-12.png"></li>
+	<li>Status が Installed になったことを確認したら、Android SDK Manager を閉じて完了です
+		<img src="/img/environment/androidsdk_windows-13.png"></li>
+</ol>
+<p id="environment-04-01-mac">続いて、Mac OS X のセットアップになります。</p>
+<ol>
+	<li>ダウンロードした ZIP ファイル（android-sdk_r22.3-macosx.zip）を解答して、適当なフォルダへ設置します。
+		今回は、~/sdks/android-sdk-macosx とします。
+		ここからはターミナルで作業を行っていきますので、ターミナルを起動してください</li>
+	<li>android-sdk-macosx の中にある platform-tools と tools のパスを通します
+		<pre>$ vi ~/.bash_profile</pre>
+		vi が起動したら以下を追加し、保存して終了します
+		<pre>export PATH="$HOME/sdks/android-sdk-macosx/platform-tools:$PATH"
+export PATH="$HOME/sdks/android-sdk-macosx/tools:$PATH"</pre>
+		.bash_profile を再読み込みします
+		<pre>$ source ~/.bash_profile</pre></li>
+	<li>Android SDK Manager を起動します。
+		ここで android コマンドが存在しないとエラーが返ってきたら、パスが上手く通っていないので一つ前を見なおしてください
+		<pre>$ android</pre></li>
+	<li>Tools と 今回は Android 4.4.2（API 19）にチェックを入れて Install XX Packages をクリックします。
+		他の Android バージョンの SDK や エミュレータ等もインストールしたい場合は、適宜チェックしてください
+		<img src="/img/environment/androidsdk_mac-01.png"></li>
+	<li>Accept License をチェックし、Install をクリックします
+		<img src="/img/environment/androidsdk_mac-02.png"></li>
+	<li>ダウンロードが始まります
+		<img src="/img/environment/androidsdk_mac-03.png"></li>
+	<li>ログに Done loading packages. が表示されたら Close をクリックます
+		<img src="/img/environment/androidsdk_mac-04.png"></li>
+	<li>Status が Installed になったことを確認したら、Android SDK Manager を閉じて完了です
+		<img src="/img/environment/androidsdk_mac-05.png"></li>
+</ol>
+<h3 id="environment-05">Genymotion∞</h3>
+<p>Android アプリを開発する際にAndroid SDK に標準でついてくるエミュレータで動作確認を行ったりするのですが、このエミュレータが非常に重いです。
 	そこで、この Genymotion の登場です。
 	全然ストレスを感じない軽快な動作で、開発が非常に楽になります。
 	特に Windows では Android アプリの開発のみとなりますので、是非、導入することをおすすめします。</p>
@@ -204,10 +273,17 @@
             <h2 id="tutorial">チュートリアル</h2>
 
 <hr>
+            <h2 id="commandline">Titanium CLI</h2>
+
+<hr>
             <h2 id="changelog">更新履歴</h2>
 <dl>
+	<dt>2014 年 01 月 08 日</dt>
+	<dd>Android SDK の完了設定を追加
+		<a href="https://twitter.com/k0sukey">@k0sukey</a></dd>
 	<dt>2014 年 01 月 07 日</dt>
-	<dd>環境構築まで作成</dd>
+	<dd>環境構築まで作成
+		<a href="https://twitter.com/k0sukey">@k0sukey</a></dd>
 </dl>
 <hr>
             <p class="footer">Titanium™ インストールガイドは <a href="http://titanium-mobile.jp/">Titanium Mobile ユーザー会</a>の提供でお送りしております</p>

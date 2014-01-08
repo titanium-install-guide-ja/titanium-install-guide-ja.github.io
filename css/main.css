@@ -162,6 +162,11 @@ hr {
     -moz-box-shadow: 0 1px 0 #fff;
 }
 
+pre {
+    padding: 2px 0 2px 20px;
+    border-left: 4px solid #ccc;
+}
+
 #sidebar {
     position: fixed;
     top: 0;
