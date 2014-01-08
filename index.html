@@ -42,7 +42,17 @@
                 <li><a href="#environment-04-01">Android SDK のインストール</a>
                     <a href="#environment-04-01-win">Win</a> / <a href="#environment-04-01-mac">Mac</a></li>
             </ul></li>
-        <li><a href="#environment-05">Genymotion∞</a></li>
+        <li><a href="#environment-05">Genymotion∞</a>
+            <ul style="margin: 0;">
+                <li><a href="#environment-05-01">VirtualBox のインストール</a>
+                    <a href="#environment-05-01-win">Win</a> / <a href="#environment-05-01-mac">Mac</a></li>
+                <li><a href="#environment-05-02">Genymotion のインストール</a>
+                    <a href="#environment-05-02-win">Win</a> / <a href="#environment-05-02-mac">Mac</a></li>
+                <li><a href="#environment-05-03">Genymotion を起動</a>
+                    <a href="#environment-05-03-win">Win</a> / <a href="#environment-05-03-mac">Mac</a></li>
+                <li><a href="#environment-05-04">Titanium Studio で設定</a>
+                    <a href="#environment-05-04-win">Win</a> / <a href="#environment-05-04-mac">Mac</a></li>
+            </ul></li>
     </ul>
     <a class="toc" href="#tutorial">チュートリアル</a>
     <ul class="menu">
@@ -113,6 +123,13 @@
 		その他にも、Appcelerator が提供している KitchenSink 等のお手本プロジェクトを Titanium Studio で GitHub からダウンロードしたりもします。
 		Windows の場合は Titanium Studio をインストールする際に git がインストールされていない場合、Titanium Studio をインストールすると同時に自動でダウンロードしてインストールされます</dd>
 	<dd><a href="http://git-scm.com/downloads">git のダウンロードページ</a>からダウンロードできます</dd>
+	<dt>Genymotion∞</dt>
+	<dd>デフォルトの Android エミュレータの代わりに利用します。
+		Genymotion は VirtualBox が必要となりますので、そちらも忘れずにインストールしてください</dd>
+	<dd><a href="http://www.genymotion.com/">Genymotion のダウンロードページ</a>からダウンロードできます</dd>
+	<dt>VirtualBox</dt>
+	<dd>Genymotion を動かすために必要となります</dd>
+	<dd><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox のダウンロードページ</a>からダウンロードできます</dd>
 </dl>
 <h3 id="environment-03">Titanium™</h3>
 <h4 id="environment-03-01">Titanium Studio のインストール</h4>
@@ -156,7 +173,7 @@
 </ol>
 <p id="environment-03-01-mac">続いて、Mac OS X のセットアップになります。</p>
 <ol>
-	<li>ダウンロードした Titanium_Studio.dmg を起動すると、Finder が表示されます
+	<li>ダウンロードした Titanium_Studio.dmg をマウントすると、Finder が表示されます
 		<img src="/img/environment/studio_mac-01.png"></li>
 	<li>表示されている Titanium Studio フォルダを Applications フォルダへドラッグアンドドロップして完了です</li>
 </ol>
@@ -258,28 +275,129 @@ export PATH="$HOME/sdks/android-sdk-macosx/tools:$PATH"</pre>
 	そこで、この Genymotion の登場です。
 	全然ストレスを感じない軽快な動作で、開発が非常に楽になります。
 	特に Windows では Android アプリの開発のみとなりますので、是非、導入することをおすすめします。</p>
-<p>VirtualBox が必要となりますので、<a href="https://www.virtualbox.org/wiki/Downloads">ダウンロードページ</a>からダウンロードし、セットアップを済ませてください。</p>
+<h4 id="environment-05-01">VirtualBox のインストール</h4>
+<p>Genymotion を起動するには VirtualBox が必要となりますので、<a href="https://www.virtualbox.org/wiki/Downloads">ダウンロードページ</a>からダウンロードし、セットアップを済ませてください。
+	<img src="/img/environment/virtualbox.png"></p>
+<p id="environment-05-01-win">ダウンロードが完了したら、セットアップを開始しましょう。まずは Windows の場合になります。</p>
+<ol>
+	<li>ダウンロードしたインストーラ（VirtualBox-4.3.6-91406-Win.exe）からセットアップウィザードを起動します
+		<img src="/img/environment/virtualbox_windows-01.png"></li>
+	<li>インストールパスを確認します。
+		デフォルトとは異なる場所へインストールしたい場合は適宜変更してください
+		<img src="/img/environment/virtualbox_windows-02.png"></li>
+	<li>各ショートカットを登録したくない場合はチェックを外してください
+		<img src="/img/environment/virtualbox_windows-03.png"></li>
+	<li>Yes をクリックして進めます
+		<img src="/img/environment/virtualbox_windows-04.png"></li>
+	<li>Install をクリックするとインストールが始まります
+		<img src="/img/environment/virtualbox_windows-05.png"></li>
+	<li>インストール中です
+		<img src="/img/environment/virtualbox_windows-06.png"></li>
+	<li>Finish をクリックして完了となります
+		<img src="/img/environment/virtualbox_windows-07.png"></li>
+</ol>
+<p id="environment-05-01-mac">続いて、Mac OS X のセットアップになります。</p>
+<ol>
+	<li>ダウンロードした VirtualBox-4.3.6-91406-OSX.dmg をマウントすると、Finder が表示されます
+		<img src="/img/environment/virtualbox_mac-01.png"></li>
+	<li>表示されている VirtualBox.pkg からセットアップウィザードを起動します
+		<img src="/img/environment/virtualbox_mac-02.png"></li>
+	<li>インストールをクリックするとインストールが始まります
+		<img src="/img/environment/virtualbox_mac-03.png"></li>
+	<li>インストール中です
+		<img src="/img/environment/virtualbox_mac-04.png"></li>
+	<li>閉じるをクリックして完了となります
+		<img src="/img/environment/virtualbox_mac-05.png"></li>
+</ol>
+<h4 id="environment-05-02">Genymotion のインストール</h4>
 <p>Genymotion は<a href="http://www.genymotion.com/">こちらからダウンロード</a>することができます。
 	Free で構いません。
 	ただし Genymotion のアカウントが必要となりますのでアカウント登録を済ませて、ログインしてからダウンロード、セットアップをしてください。
 	その後、Genymotion を起動すると Android の色々な VM がダウンロードできるようになります。
-	開発対象の実機に近いものを選択すると良いと思います。</p>
-<p>Titanium Studio で Android アプリをビルドする際、アプリの転送先を Genymotion にする事ができます。
-	Windows の場合は、Titanium Studio の Window → Preference → Studio → Platforms → Android → Default Emulator に Genymotion でダウンロードした Android の VM 名が入っているのでそれを選択します。
-	<img src="/img/environment/studio_windows-genymotion.png">
-	Mac OS X の場合は、Titanium Studio の環境設定 → Studio → Platforms → Android → Default Emulator に Genymotion でダウンロードした Android の VM 名が入っているのでそれを選択します。
+	開発対象の実機に近いものを選択すると良いと思います。
+	<img src="/img/environment/genymotion.png"></p>
+<p id="environment-05-02-win">ダウンロードが完了したら、セットアップを開始しましょう。まずは Windows の場合になります。</p>
+<ol>
+	<li>ダウンロードしたインストーラ（genymotion-2.0.3.exe）からセットアップウィザードを起動します
+		<img src="/img/environment/genymotion_windows-01.png"></li>
+	<li>インストールパスを確認します。
+		デフォルトとは異なる場所へインストールしたい場合は適宜変更してください
+		<img src="/img/environment/genymotion_windows-02.png"></li>
+	<li>スタートメニューに登録したくない場合はチェックしてください
+		<img src="/img/environment/genymotion_windows-03.png"></li>
+	<li>デスクトップへアイコンを登録したくない場合はチェックを外してください
+		<img src="/img/environment/genymotion_windows-04.png"></li>
+	<li>Install をクリックするとインストールが始まります
+		<img src="/img/environment/genymotion_windows-05.png"></li>
+	<li>インストール中です
+		<img src="/img/environment/genymotion_windows-06.png"></li>
+	<li>Finish をクリックして完了となります
+		<img src="/img/environment/genymotion_windows-07.png"></li>
+</ol>
+<p id="environment-05-02-mac">続いて、Mac OS X のセットアップになります。</p>
+<ol>
+	<li>ダウンロードした genymotion-2.0.3.dmg をマウントすると、Finder が表示されます
+		<img src="/img/environment/genymotion_mac-01.png"></li>
+	<li>表示されている Genymotion Shell.app と Genymotion.app を Applications フォルダへドラッグアンドドロップして完了です</li>
+</ol>
+<h4 id="environment-05-03">Genymotion を起動</h4>
+<p id="environment-05-03-win">インストールが完了したら、Genymotion を起動しましょう。まずは Windows の場合になります。</p>
+<ol>
+	<li>初期起動時は VM がないので入れるように促されます。
+		Yes をクリックしてすすめましょう
+		<img src="/img/environment/genymotion_windows-08.png"></li>
+	<li>Connect をクリックして、Genymiton をダウンロードした際に作ったアカウントでログインします
+		<img src="/img/environment/genymotion_windows-09.png"></li>
+	<li>お好みの VM を選択して、Next をクリックします。
+		Android SDK Manager でインストールした API レベルのものにあわせましょう
+		<img src="/img/environment/genymotion_windows-10.png"></li>
+	<li>VM の名前を指定することができます。
+		ここで指定した名前は、Titanium Studio で Genymotion と連携する際に必要となります
+		<img src="/img/environment/genymotion_windows-11.png"></li>
+	<li>インストール中です
+		<img src="/img/environment/genymotion_windows-12.png"></li>
+	<li>Finish をクリックします
+		<img src="/img/environment/genymotion_windows-13.png"></li>
+	<li>ダウンロードした VM が一覧へ追加されていたら完了です
+		<img src="/img/environment/genymotion_windows-14.png"></li>
+</ol>
+<p id="environment-05-03-mac">続いて、Mac OS X のセットアップになります。</p>
+<ol>
+	<li>初期起動時は VM がないので入れるように促されます。
+		Yes をクリックしてすすめましょう
+		<img src="/img/environment/genymotion_mac-02.png"></li>
+	<li>Connect をクリックして、Genymiton をダウンロードした際に作ったアカウントでログインします
+		<img src="/img/environment/genymotion_mac-03.png"></li>
+	<li>お好みの VM を選択して、Next をクリックします。
+		Android SDK Manager でインストールした API レベルのものにあわせましょう
+		<img src="/img/environment/genymotion_mac-04.png"></li>
+	<li>VM の名前を指定することができます。
+		ここで指定した名前は、Titanium Studio で Genymotion と連携する際に必要となります
+		<img src="/img/environment/genymotion_mac-05.png"></li>
+	<li>インストール中です
+		<img src="/img/environment/genymotion_mac-06.png"></li>
+	<li>Finish をクリックします
+		<img src="/img/environment/genymotion_mac-07.png"></li>
+	<li>ダウンロードした VM が一覧へ追加されていたら完了です
+		<img src="/img/environment/genymotion_mac-08.png"></li>
+</ol>
+<h4 id="environment-05-04">Titanium Studio で設定</h4>
+<p>Titanium Studio で Android アプリをビルドする際、アプリの転送先を Genymotion にする事ができます。</p>
+<p id="environment-05-04-win">Windows の場合は、Titanium Studio の Window → Preference → Studio → Platforms → Android → Default Emulator に Genymotion でダウンロードした Android の VM 名が入っているのでそれを選択します。
+	<img src="/img/environment/studio_windows-genymotion.png"></p>
+<p id="environment-05-04-mac">Mac OS X の場合は、Titanium Studio の環境設定 → Studio → Platforms → Android → Default Emulator に Genymotion でダウンロードした Android の VM 名が入っているのでそれを選択します。
 	<img src="/img/environment/studio_mac-genymotion.png"></p>
 <hr>
             <h2 id="tutorial">チュートリアル</h2>
-
+<p>Titanium Studio で GitHub から KitchenSink をインポートして Genymotion で動かすところまでを書く予定</p>
 <hr>
             <h2 id="commandline">Titanium CLI</h2>
-
+<p>上級者向けにコマンドラインで Titanium を操作するマニュアルを書く予定</p>
 <hr>
             <h2 id="changelog">更新履歴</h2>
 <dl>
 	<dt>2014 年 01 月 08 日</dt>
-	<dd>Android SDK の設定を追加
+	<dd>Android SDK、Genymotion∞ を追加
 		<a href="https://twitter.com/k0sukey">@k0sukey</a></dd>
 	<dt>2014 年 01 月 07 日</dt>
 	<dd>環境構築まで作成

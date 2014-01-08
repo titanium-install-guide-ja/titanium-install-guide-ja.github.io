@@ -102,11 +102,13 @@ body {
 }
 
 h1 {
+    line-height: 170%;
     font-size: 160%;
     font-weight: bold;
 }
 
 h2 {
+    line-height: 150%;
     font-size: 140%;
     font-weight: bold;
 }
