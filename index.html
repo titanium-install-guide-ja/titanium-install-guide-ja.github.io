@@ -56,6 +56,8 @@
     </ul>
     <a class="toc" href="#tutorial">チュートリアル</a>
     <ul class="menu">
+        <li><a href="#tutorial-01">Windows</a></li>
+        <li><a href="#tutorial-02">Mac OS X</a></li>
     </ul>
     <a class="toc" href="#commandline">Titanium CLI</a>
     <a class="toc" href="#changelog">更新履歴</a>
@@ -68,6 +70,7 @@
 <p>Titanium Studio、Titanium SDK、Titanium CLI、Alloy、Node.ACS の環境構築からアプリのプロジェクトを生成し、シミュレータ、もしくはエミュレータでアプリを起動することろまでの流れを解説します。
 	nvm で node.js をインストールされていたりする場合等、特殊な環境下でのセットアップにつきましては、解説を省かせていただきますのでご了承ください。
 	また、ターゲットとなるアプリのプラットフォームは iOS / Android のみとさせていただきます。</p>
+<p>もしもうまく動かない場合は、<a href="http://support.titanium-mobile.jp/">ユーザ会のサポートフォーラム</a>で質問してみましょう。</p>
 <h2 id="introduction">インストールガイドでの対応バージョン</h2>
 <dl>
 	<dt>Titanium Studio
@@ -85,8 +88,8 @@
 	<dd>Titanium 開発元の Appcelerator が提供している公式 MVC フレームワーク</dd>
 	<dt>Node.ACS
 		<small>1.0.11</small></dt>
-	<dd>Appcelerator 社が提供する PaaS。
-		同じく、Appcelerator 社が提供している mBaaS である、Appcelerator Cloud Services（ACS）と親和性が非常に高く、ACS で提供されていない機能を独自で拡張できたりもします</dd>
+	<dd>Appcelerator が提供する PaaS。
+		同じく、Appcelerator が提供している mBaaS である、Appcelerator Cloud Services（ACS）と親和性が非常に高く、ACS で提供されていない機能を独自で拡張できたりもします</dd>
 </dl>
 <hr>
             <h2 id="environment">環境構築</h2>
@@ -107,11 +110,12 @@
 	<dt>JDK</dt>
 	<dd>Android アプリをビルドするために必要となります。
 		Windows の場合は Titanium Studio をインストールする際に JDK がインストールされていない場合、Titanium Studio をインストールすると同時に自動でダウンロードしてインストールされます。
-		手動でインストールする場合は必ず 32bit 版をインストールしてください。</dd>
+		手動でインストールする場合は必ず 32bit 版をインストールしてください</dd>
 	<dd><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle 開発者向けサイト</a>、もしくは、<a href="https://developer.apple.com/downloads/">Apple 開発者向けサイト</a>からダウンロードできます</dd>
 	<dt>Android SDK</dt>
 	<dd>Android アプリをビルドするために必要となります。
-		こちらは手動でインストールする必要があります</dd>
+		こちらは手動でインストールする必要があります。
+		また、Titanium 自体に Android SDK 2.3.3 が必要になりますのでご注意ください</dd>
 	<dd><a href="http://developer.android.com/sdk/index.html">Google の Android 開発者向けサイト</a>からダウンロードできます。
 		Titanium のみで開発するのであれば（Eclipse を使って Java で開発しない）、SDK Tools Only 版をインストールすることをおすすめします</dd>
 	<dt>node.js</dt>
@@ -233,7 +237,8 @@
 	<li>そのまま Android SDK Manager を起動するので、Start SDK Manager へチェックを入れたまま Finish をクリックします
 		<img src="/img/environment/androidsdk_windows-08.png"></li>
 	<li>Tools と 今回は Android 4.4.2（API 19）にチェックを入れて Install XX Packages をクリックします。
-		他の Android バージョンの SDK や エミュレータ等もインストールしたい場合は、適宜チェックしてください
+		他の Android バージョンの SDK や エミュレータ等もインストールしたい場合は、適宜チェックしてください。
+		また、Titanium 自体に Android SDK 2.3.3 が必要になりますのでこちらもあわせてチェックしてください
 		<img src="/img/environment/androidsdk_windows-09.png"></li>
 	<li>Accept License をチェックし、Install をクリックします
 		<img src="/img/environment/androidsdk_windows-10.png"></li>
@@ -260,7 +265,8 @@ export PATH="$HOME/sdks/android-sdk-macosx/tools:$PATH"</pre>
 		ここで android コマンドが存在しないとエラーが返ってきたら、パスが上手く通っていないので一つ前を見なおしてください
 		<pre>$ android</pre></li>
 	<li>Tools と 今回は Android 4.4.2（API 19）にチェックを入れて Install XX Packages をクリックします。
-		他の Android バージョンの SDK や エミュレータ等もインストールしたい場合は、適宜チェックしてください
+		他の Android バージョンの SDK や エミュレータ等もインストールしたい場合は、適宜チェックしてください。
+		また、Titanium 自体に Android SDK 2.3.3 が必要になりますのでこちらもあわせてチェックしてください
 		<img src="/img/environment/androidsdk_mac-01.png"></li>
 	<li>Accept License をチェックし、Install をクリックします
 		<img src="/img/environment/androidsdk_mac-02.png"></li>
@@ -390,7 +396,31 @@ export PATH="$HOME/sdks/android-sdk-macosx/tools:$PATH"</pre>
 	<img src="/img/environment/studio_mac-genymotion.png"></p>
 <hr>
             <h2 id="tutorial">チュートリアル</h2>
-<p>Titanium Studio で GitHub から KitchenSink をインポートして Genymotion で動かすところまでを書く予定</p>
+<p>Titanium の開発環境は整いましたか？
+	それでは Appcelerator が提供しているお手本デモアプリ、KitchenSink を実際に Genymotion で動かしてみましょう。
+	KitchenSink は <a href="https://github.com/appcelerator/KitchenSink">GitHub で公開されています</a>が、Titanium Studio で簡単にインポートすることができます。</p>
+<h3 id="tutorial-01">Windows</h3>
+<ol>
+	<li>ダッシュボード → Develop タブ → Kitchen Sink の IMPORT ボタンをクリック
+		<img src="/img/tutorial/kitchensink_windows-01.png"></li>
+	<li>特に変更しなければそのまま Finish をクリック
+		<img src="/img/tutorial/kitchensink_windows-02.png"></li>
+	<li>インポート中です
+		<img src="/img/tutorial/kitchensink_windows-03.png"></li>
+	<li>インポートが完了すると Project Explorer に Kitchen Sink が追加されているのでそこをクリックし、Run → Android Emulator でビルドが始まり、完了すると Genymotion が起動します
+		<img src="/img/tutorial/kitchensink_windows-04.png"></li>
+</ol>
+<h3 id="tutorial-01">Mac OS X</h3>
+<ol>
+	<li>ダッシュボード → Develop タブ → Kitchen Sink の IMPORT ボタンをクリック
+		<img src="/img/tutorial/kitchensink_mac-01.png"></li>
+	<li>特に変更しなければそのまま Finish をクリック
+		<img src="/img/tutorial/kitchensink_mac-02.png"></li>
+	<li>インポート中です
+		<img src="/img/tutorial/kitchensink_mac-03.png"></li>
+	<li>インポートが完了すると Project Explorer に Kitchen Sink が追加されているのでそこをクリックし、Run → Android Emulator でビルドが始まり、完了すると Genymotion が起動します
+		<img src="/img/tutorial/kitchensink_mac-04.png"></li>
+</ol>
 <hr>
             <h2 id="commandline">Titanium CLI</h2>
 <p>上級者向けにコマンドラインで Titanium を操作するマニュアルを書く予定</p>
@@ -398,7 +428,7 @@ export PATH="$HOME/sdks/android-sdk-macosx/tools:$PATH"</pre>
             <h2 id="changelog">更新履歴</h2>
 <dl>
 	<dt>2014 年 01 月 08 日</dt>
-	<dd>Android SDK、Genymotion∞ を追加
+	<dd>Android SDK、Genymotion∞ チュートリアルを追加
 		<a href="https://twitter.com/k0sukey">@k0sukey</a></dd>
 	<dt>2014 年 01 月 07 日</dt>
 	<dd>環境構築まで作成
