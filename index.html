@@ -76,7 +76,7 @@
             <h1>Titanium™ インストールガイド</h1>
             <h2 id="introduction">はじめに</h2>
 <p>米国 Appcelerator 社が提供している、JavaScript で iOS / Android のネイティブアプリを開発することができる Titanium™ の導入方法の日本語解説サイトです。</p>
-<p>Titanium Studio、Titanium SDK、Titanium CLI、Alloy、Node.ACS の環境構築からアプリのプロジェクトを生成し、シミュレータ、もしくはエミュレータでアプリを起動することろまでの流れを解説します。
+<p>Titanium Studio、Titanium SDK、Titanium CLI、Alloy、Node.ACS の環境構築からアプリのプロジェクトを生成し、シミュレータ、もしくはエミュレータでアプリを起動するところまでの流れを解説します。
 	nvm で node.js をインストールされていたりする場合等、特殊な環境下でのセットアップにつきましては、解説を省かせていただきますのでご了承ください。
 	また、ターゲットとなるアプリのプラットフォームは iOS / Android のみとさせていただきます。</p>
 <p>もしもうまく動かない場合は、<a href="http://support.titanium-mobile.jp/">ユーザ会のサポートフォーラム</a>で質問してみましょう。</p>
@@ -193,7 +193,7 @@
 <h4 id="environment-03-02">Titanium Studio を起動</h4>
 <p id="environment-03-02-win">まずは Windows から、Titanium Studio を起動するとワークスペースのパスを設定するように促されます。
 	<img src="/img/environment/studio_windows-workspace.png">
-	その後、Accelerator のアカウントがあるか聞かれます。
+	その後、Appcelerator のアカウントがあるか聞かれます。
 	Titanium Studio をダウンロードする際に作ってあるので、I do have an account with Appcelerator にチェックを入れて Next ボタンをクリックします。
 	<img src="/img/environment/studio_windows-account.png">
 	ログインダイアログが表示されますので、Appcelerator のアカウントを入力してログインしましょう。
@@ -261,7 +261,7 @@
 </ol>
 <p id="environment-04-01-mac">続いて、Mac OS X のセットアップになります。</p>
 <ol>
-	<li>ダウンロードした ZIP ファイル（android-sdk_r22.3-macosx.zip）を解答して、適当なフォルダへ設置します。
+	<li>ダウンロードした ZIP ファイル（android-sdk_r22.3-macosx.zip）を解凍して、適当なフォルダへ設置します。
 		今回は、~/sdks/android-sdk-macosx とします。
 		ここからはターミナルで作業を行っていきますので、ターミナルを起動してください</li>
 	<li>android-sdk-macosx の中にある platform-tools と tools のパスを通します
@@ -374,7 +374,7 @@ export PATH="$HOME/sdks/android-sdk-macosx/tools:$PATH"</pre>
 	<li>初期起動時は VM がないので入れるように促されます。
 		Yes をクリックしてすすめましょう
 		<img src="/img/environment/genymotion_windows-08.png"></li>
-	<li>Connect をクリックして、Genymiton をダウンロードした際に作ったアカウントでログインします
+	<li>Connect をクリックして、Genymotion をダウンロードした際に作ったアカウントでログインします
 		<img src="/img/environment/genymotion_windows-09.png"></li>
 	<li>お好みの VM を選択して、Next をクリックします。
 		Android SDK Manager でインストールした API レベルのものにあわせましょう
